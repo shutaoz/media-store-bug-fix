@@ -7,11 +7,73 @@ public class Problem3Test {
     @Test
     public void catchTheBugInBook() {
         // quiz
+        String str0 = "test0";
+        String str1 = "test1";
+        String str2 = "test2";
+        String sBug = "bug";
+
+        BookFiction obj0 = new BookFiction(str0, str1, str2);
+        BookFiction obj1 = new BookFiction(obj0);
+
+        // obj0 and obj1 only share the same value for their ID
+        obj1.setTitle(sBug);
+
+        assertTrue(obj0.equals(obj1));
+
+        BookFiction obj2 = new BookFiction(str1, str1, str2);
+        BookFiction obj3 = new BookFiction(obj2);
+
+        obj3.setAuthor(sBug);
+
+        assertTrue(obj2.equals(obj3));
+
+        BookFiction obj4 = new BookFiction(str2, str1, str2);
+        BookFiction obj5 = new BookFiction(obj4);
+
+        obj5.setGenres(sBug);
+
+        assertTrue(obj4.equals(obj5));
+
+        BookFiction obj6 = new BookFiction(str0, str2, str2);
+        BookFiction obj7 = new BookFiction(obj6);
+
+        obj7.setTitle(sBug);
+        obj7.setGenres(sBug);
+        obj7.setAuthor(sBug);
+
+        assertTrue(obj6.equals(obj7));
+
     }
 
     @Test
     public void catchTheBugInMovie() {
         // quiz
+        String str0 = "test0";
+        String str1 = "test1";
+
+        String sBug = "bug";
+
+        MovieAction obj0 = new MovieAction(str0, str1);
+        MovieAction obj1 = new MovieAction(obj0);
+
+        obj1.setTitle(sBug);
+
+        assertTrue(obj0.equals(obj1));
+
+        MovieAction obj2 = new MovieAction(str1, str1);
+        MovieAction obj3 = new MovieAction(obj2);
+
+        obj2.setRating(sBug);
+
+        assertTrue(obj2.equals(obj3));
+
+        MovieAction obj4 = new MovieAction(str0, str1);
+        MovieAction obj5 = new MovieAction(obj4);
+
+        obj4.setTitle(sBug);
+        obj4.setRating(sBug);
+
+        assertTrue(obj4.equals(obj5));
     }
 
     // DO NOT REMOVE OR CHANGE ANYTHING BELOW THIS!
